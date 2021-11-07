@@ -1,0 +1,8 @@
+{% extends "server/base.html"%} {% block content %} {% load materializecss %}
+<div class="2justify-content-center col-md-12">
+  <form action="/your-name/" method="post">
+    {% csrf_token %} {{ form|materializecss }}
+    <input type="submit" class="waves-effect waves-light btn" value="Submit" />
+  </form>
+</div>
+{% endblock %}
