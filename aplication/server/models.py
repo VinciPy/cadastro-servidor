@@ -36,5 +36,5 @@ class Server(models.Model):
 
     nome = models.CharField(max_length=255)
     config = models.ManyToManyField(Configuracoes)
-    apps = models.ForeignKey(Aplicativos, on_delete=models.CASCADE)
+    apps = models.ManyToManyField(Aplicativos)
     local = models.CharField(max_length=255)

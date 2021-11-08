@@ -12,5 +12,10 @@ class ServerListView(ListView):
 
 
 def ServerAddView(request):
-    form = ServerFormAdd
+    form = ServerFormAdd()
+    if request.method == "POST":
+        formset = ServerFormAdd(request.POST, request.FILES)
+        if formset.is_valid():
+            formset.save()
+        return HttpResponseRedirect("/")
     return render(request, "server/add.html", {'form': form})
